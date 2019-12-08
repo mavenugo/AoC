@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	f, _ := os.Open("puzzle6-1.input")
+	f, _ := os.Open("puzzle6.input")
 	scanner := bufio.NewScanner(f)
 	ro := make(map[string]string)
 
