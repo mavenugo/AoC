@@ -37,56 +37,21 @@ done:
 		pm3 := (getInput(idx) / 10000) % 10
 		switch inst {
 		case 1:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
 			num = getInput(p1) + getInput(p2)
-			p3 := getInput(idx + 3)
-			if pm3 == 1 {
-				p3 = idx + 3
-			} else if pm3 == 2 {
-				p3 = (relativeBase + getInput(idx+3))
-			}
+			p3 := get(input, idx, pm3, 3, relativeBase)
 			setInput(p3, num)
 			next = 4
 		case 2:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
 			num = getInput(p1) * getInput(p2)
-			p3 := getInput(idx + 3)
-			if pm3 == 1 {
-				p3 = idx + 3
-			} else if pm3 == 2 {
-				p3 = (relativeBase + getInput(idx+3))
-			}
+			p3 := get(input, idx, pm3, 3, relativeBase)
 			setInput(p3, num)
 			next = 4
 		case 3:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
 			if arg < len(args) {
 				setInput(p1, int64(args[arg]))
 				arg++
@@ -101,12 +66,7 @@ done:
 			}
 			next = 2
 		case 4:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
 			answer = getInput(p1)
 			fmt.Printf("Answer : %d\n", answer)
 			if !isClosed(send) {
@@ -114,18 +74,8 @@ done:
 			}
 			next = 2
 		case 5:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
 			if getInput(p1) != 0 {
 				idx = getInput(p2)
 				next = 0
@@ -133,18 +83,8 @@ done:
 				next = 3
 			}
 		case 6:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
 			if getInput(p1) == 0 {
 				idx = getInput(p2)
 				next = 0
@@ -152,24 +92,9 @@ done:
 				next = 3
 			}
 		case 7:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
-			p3 := getInput(idx + 3)
-			if pm3 == 1 {
-				p3 = idx + 3
-			} else if pm3 == 2 {
-				p3 = (relativeBase + getInput(idx+3))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
+			p3 := get(input, idx, pm3, 3, relativeBase)
 			if getInput(p1) < getInput(p2) {
 				setInput(p3, 1)
 			} else {
@@ -177,24 +102,9 @@ done:
 			}
 			next = 4
 		case 8:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
-			p2 := getInput(idx + 2)
-			if pm2 == 1 {
-				p2 = idx + 2
-			} else if pm2 == 2 {
-				p2 = (relativeBase + getInput(idx+2))
-			}
-			p3 := getInput(idx + 3)
-			if pm3 == 1 {
-				p3 = idx + 3
-			} else if pm3 == 2 {
-				p3 = (relativeBase + getInput(idx+3))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
+			p2 := get(input, idx, pm2, 2, relativeBase)
+			p3 := get(input, idx, pm3, 3, relativeBase)
 			if getInput(p1) == getInput(p2) {
 				setInput(p3, 1)
 			} else {
@@ -202,12 +112,7 @@ done:
 			}
 			next = 4
 		case 9:
-			p1 := getInput(idx + 1)
-			if pm1 == 1 {
-				p1 = idx + 1
-			} else if pm1 == 2 {
-				p1 = (relativeBase + getInput(idx+1))
-			}
+			p1 := get(input, idx, pm1, 1, relativeBase)
 			relativeBase = relativeBase + getInput(p1)
 			next = 2
 		case 99:
@@ -254,4 +159,14 @@ func isClosed(ch <-chan int64) bool {
 	}
 
 	return false
+}
+
+func get(input []int64, idx int64, pm int64, ptr int64, relativeBase int64) int64 {
+	p := getInput(idx + ptr)
+	if pm == 1 {
+		p = idx + ptr
+	} else if pm == 2 {
+		p = (relativeBase + getInput(idx+ptr))
+	}
+	return p
 }
